@@ -2,51 +2,18 @@
 
 exports[`"esModule" option should work with "Boolean" value equal "false": errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with "Boolean" value equal "false": result 1`] = `
-"Где розы — там и тернии —
-Таков закон судьбы.
-
-Николай Алексеевич Некрасов
-
-Where the roses are - there are thorns -
-That is the law of fate.
-
-Nikolay Alekseevich Nekrasov
-"
-`;
+exports[`"esModule" option should work with "Boolean" value equal "false": result 1`] = `"Hello World"`;
 
 exports[`"esModule" option should work with "Boolean" value equal "false": warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work with "Boolean" value equal "true": errors 1`] = `Array []`;
 
-exports[`"esModule" option should work with "Boolean" value equal "true": result 1`] = `
-"Где розы — там и тернии —
-Таков закон судьбы.
-
-Николай Алексеевич Некрасов
-
-Where the roses are - there are thorns -
-That is the law of fate.
-
-Nikolay Alekseevich Nekrasov
-"
-`;
+exports[`"esModule" option should work with "Boolean" value equal "true": result 1`] = `"Hello World"`;
 
 exports[`"esModule" option should work with "Boolean" value equal "true": warnings 1`] = `Array []`;
 
 exports[`"esModule" option should work without value: errors 1`] = `Array []`;
 
-exports[`"esModule" option should work without value: result 1`] = `
-"Где розы — там и тернии —
-Таков закон судьбы.
-
-Николай Алексеевич Некрасов
-
-Where the roses are - there are thorns -
-That is the law of fate.
-
-Nikolay Alekseevich Nekrasov
-"
-`;
+exports[`"esModule" option should work without value: result 1`] = `"Hello World"`;
 
 exports[`"esModule" option should work without value: warnings 1`] = `Array []`;

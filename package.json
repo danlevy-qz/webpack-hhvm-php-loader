@@ -12,9 +12,9 @@
     "node": ">= 10.13.0"
   },
   "scripts": {
-    "start": "npm run build -- -w",
+    "start": "yarn build -- -w",
     "clean": "del-cli dist",
-    "prebuild": "npm run clean",
+    "prebuild": "yarn clean",
     "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
     "commitlint": "commitlint --from=master",
     "security": "npm audit",
@@ -22,11 +22,11 @@
     "lint:js": "eslint --cache .",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "test:only": "cross-env NODE_ENV=test jest",
-    "test:watch": "npm run test:only -- --watch",
-    "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
-    "pretest": "npm run lint",
-    "test": "npm run test:coverage",
-    "prepare": "npm run build",
+    "test:watch": "yarn test:only -- --watch",
+    "test:coverage": "yarn test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "pretest": "yarn lint",
+    "test": "yarn test:coverage",
+    "prepare": "yarn build",
     "release": "standard-version",
     "defaults": "webpack-defaults"
   },
