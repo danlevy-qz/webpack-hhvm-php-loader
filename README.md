@@ -1,12 +1,3 @@
-<div align="center">
-  <img width="200" height="200"
-    src="https://cdn3.iconfinder.com/data/icons/lexter-flat-colorfull-file-formats/56/raw-256.png">
-  <a href="https://github.com/webpack/webpack">
-    <img width="200" height="200"
-      src="https://webpack.js.org/assets/icon-square-big.svg">
-  </a>
-</div>
-
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
 [![deps][deps]][deps-url]
@@ -17,7 +8,7 @@
 
 # webpack-hhvm-php-loader
 
-A loader for webpack that allows importing files as a String.
+A loader for webpack that executes Hacklang/PHP scripts, returning their output as a String.
 
 ## Getting Started
 
@@ -32,7 +23,7 @@ Then add the loader to your `webpack` config. For example:
 **file.js**
 
 ```js
-import txt from './file.txt';
+import jsonResults from './file.php';
 ```
 
 **webpack.config.js**
@@ -43,7 +34,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.txt$/i,
+        test: /\.php.?$/i,
         use: 'webpack-hhvm-php-loader',
       },
     ],
@@ -76,7 +67,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.txt$/i,
+        test: /\.php.?$/i,
         use: [
           {
             loader: 'webpack-hhvm-php-loader',
@@ -96,13 +87,13 @@ module.exports = {
 ### Inline
 
 ```js
-import txt from 'webpack-hhvm-php-loader!./file.txt';
+import jsonResults from 'webpack-hhvm-php-loader!./file.php';
 ```
 
 Beware, if you already define loader(s) for extension(s) in `webpack.config.js` you should use:
 
 ```js
-import css from '!!webpack-hhvm-php-loader!./file.txt'; // Adding `!!` to a request will disable all loaders specified in the configuration
+import jsonResults from '!!webpack-hhvm-php-loader!./file.php'; // Adding `!!` to a request will disable all loaders specified in the configuration
 ```
 
 ## Contributing
