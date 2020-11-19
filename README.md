@@ -15,16 +15,16 @@
 [![chat][chat]][chat-url]
 [![size][size]][size-url]
 
-# raw-loader
+# webpack-hhvm-php-loader
 
 A loader for webpack that allows importing files as a String.
 
 ## Getting Started
 
-To begin, you'll need to install `raw-loader`:
+To begin, you'll need to install `webpack-hhvm-php-loader`:
 
 ```console
-$ npm install raw-loader --save-dev
+$ npm install webpack-hhvm-php-loader --save-dev
 ```
 
 Then add the loader to your `webpack` config. For example:
@@ -44,7 +44,7 @@ module.exports = {
     rules: [
       {
         test: /\.txt$/i,
-        use: 'raw-loader',
+        use: 'webpack-hhvm-php-loader',
       },
     ],
   },
@@ -64,7 +64,7 @@ And run `webpack` via your preferred method.
 Type: `Boolean`
 Default: `true`
 
-By default, `raw-loader` generates JS modules that use the ES modules syntax.
+By default, `webpack-hhvm-php-loader` generates JS modules that use the ES modules syntax.
 There are some cases in which using ES modules is beneficial, like in the case of [module concatenation](https://webpack.js.org/plugins/module-concatenation-plugin/) and [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 You can enable a CommonJS module syntax using:
@@ -79,7 +79,7 @@ module.exports = {
         test: /\.txt$/i,
         use: [
           {
-            loader: 'raw-loader',
+            loader: 'webpack-hhvm-php-loader',
             options: {
               esModule: false,
             },
@@ -96,13 +96,13 @@ module.exports = {
 ### Inline
 
 ```js
-import txt from 'raw-loader!./file.txt';
+import txt from 'webpack-hhvm-php-loader!./file.txt';
 ```
 
 Beware, if you already define loader(s) for extension(s) in `webpack.config.js` you should use:
 
 ```js
-import css from '!!raw-loader!./file.txt'; // Adding `!!` to a request will disable all loaders specified in the configuration
+import css from '!!webpack-hhvm-php-loader!./file.txt'; // Adding `!!` to a request will disable all loaders specified in the configuration
 ```
 
 ## Contributing
@@ -115,17 +115,17 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 
 [MIT](./LICENSE)
 
-[npm]: https://img.shields.io/npm/v/raw-loader.svg
-[npm-url]: https://npmjs.com/package/raw-loader
-[node]: https://img.shields.io/node/v/raw-loader.svg
+[npm]: https://img.shields.io/npm/v/webpack-hhvm-php-loader.svg
+[npm-url]: https://npmjs.com/package/webpack-hhvm-php-loader
+[node]: https://img.shields.io/node/v/webpack-hhvm-php-loader.svg
 [node-url]: https://nodejs.org
-[deps]: https://david-dm.org/webpack-contrib/raw-loader.svg
-[deps-url]: https://david-dm.org/webpack-contrib/raw-loader
-[tests]: https://github.com/webpack-contrib/raw-loader/workflows/raw-loader/badge.svg
-[tests-url]: https://github.com/webpack-contrib/raw-loader/actions
-[cover]: https://codecov.io/gh/webpack-contrib/raw-loader/branch/master/graph/badge.svg
-[cover-url]: https://codecov.io/gh/webpack-contrib/raw-loader
+[deps]: https://david-dm.org/webpack-contrib/webpack-hhvm-php-loader.svg
+[deps-url]: https://david-dm.org/webpack-contrib/webpack-hhvm-php-loader
+[tests]: https://github.com/webpack-contrib/webpack-hhvm-php-loader/workflows/webpack-hhvm-php-loader/badge.svg
+[tests-url]: https://github.com/webpack-contrib/webpack-hhvm-php-loader/actions
+[cover]: https://codecov.io/gh/webpack-contrib/webpack-hhvm-php-loader/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/webpack-contrib/webpack-hhvm-php-loader
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
 [chat-url]: https://gitter.im/webpack/webpack
-[size]: https://packagephobia.now.sh/badge?p=raw-loader
-[size-url]: https://packagephobia.now.sh/result?p=raw-loader
+[size]: https://packagephobia.now.sh/badge?p=webpack-hhvm-php-loader
+[size-url]: https://packagephobia.now.sh/result?p=webpack-hhvm-php-loader

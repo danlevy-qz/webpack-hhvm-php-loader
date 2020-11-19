@@ -18,7 +18,7 @@ about: Suggest an idea for this project
 - Node Version:
 - NPM Version:
 - webpack Version:
-- raw-loader Version:
+- webpack-hhvm-php-loader Version:
 
 ### Feature Proposal
 

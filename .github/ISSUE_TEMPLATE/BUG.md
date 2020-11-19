@@ -18,7 +18,7 @@ about: Something went awry and you'd like to tell us about it.
 - Node Version:
 - NPM Version:
 - webpack Version:
-- raw-loader Version:
+- webpack-hhvm-php-loader Version:
 
 ### Expected Behavior
 

@@ -18,7 +18,7 @@ about: Would you like something work differently? Have an alternative approach? 
 - Node Version:
 - NPM Version:
 - webpack Version:
-- raw-loader Version:
+- webpack-hhvm-php-loader Version:
 
 ### Expected Behavior / Situation
 
