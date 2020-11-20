@@ -1,6 +1,6 @@
 {
   "name": "webpack-hhvm-php-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A loader for webpack that executes hhvm scripts",
   "license": "MIT",
   "repository": "justsml/webpack-hhvm-php-loader",
