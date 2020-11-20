@@ -1,4 +1,4 @@
-import inline from '!!../../src/index.js!./file.php';
+import inline from '!!../../src/index.js!./file.php?parser=string';
 
 __export__ = inline;
 

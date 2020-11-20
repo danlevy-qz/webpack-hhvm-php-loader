@@ -1,31 +1,73 @@
 /* eslint-disable no-unused-vars */
 import execa from 'execa';
-import { getOptions } from 'loader-utils';
-// import { validate } from 'schema-utils';
+import { getOptions, parseQuery } from 'loader-utils';
 
-// import schema from './options.json';
+function verifyJson(jsonString) {
+  JSON.parse(jsonString);
+  return jsonString;
+}
 
-export default async function rawLoader(source) {
+export default async function hhvmPhpLoader(source) {
   const options = getOptions(this);
+  const query =
+    this.resourceQuery && this.resourceQuery.length >= 1
+      ? parseQuery(this.resourceQuery)
+      : {};
   const callback = this.async();
   const phpScript = this.resourcePath;
-
-  // validate(schema, options, {
-  //   name: 'HHVM PHP Loader',
-  //   baseDataPath: 'options',
-  // });
+  const engine = query.engine || options.engine || 'hhvm';
+  const parser = query.parser || options.parser || 'json';
+  const timeout = query.timeout || options.timeout || 5000;
   try {
-    const results = await execa('hhvm', [phpScript], { timeout: 4000 });
+    const results = await execa(engine, [phpScript], {
+      timeout,
+    });
 
-    const json = JSON.stringify(results.stdout)
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
+    let jsonString;
+
+    if (results.failed) {
+      throw new Error(
+        `Failed to execute script '${phpScript}' ${JSON.stringify(
+          {
+            error: true,
+            exitCode: results.exitCode,
+            stdout: results.stdout,
+            stderr: results.stderr,
+          },
+          null,
+          2
+        )}`
+      );
+    } else {
+      jsonString = `${results.stdout}`.trim();
+    }
+
+    if (parser !== 'json') {
+      // assume object or string - either way it'll be safely encoded.
+      jsonString = JSON.stringify(jsonString);
+    } else {
+      try {
+        // check if we have valid JSON, preserving the original input
+        jsonString = verifyJson(jsonString)
+          .replace(/\u2028/g, '\\u2028')
+          .replace(/\u2029/g, '\\u2029');
+      } catch (error) {
+        // The value isn't proper JSON, wrap as a string
+        // eslint-disable-next-line no-console
+        // console.warn(`PHP Script emitted invalid JSON! ${phpScript}`, error);
+        jsonString = JSON.stringify(jsonString);
+      }
+    }
 
     const esModule =
-    typeof options.esModule !== 'undefined' ? options.esModule : true;
+      typeof options.esModule !== 'undefined' ? options.esModule : true;
 
-    callback(null, `${esModule ? 'export default' : 'module.exports ='} ${json};`);
+    callback(
+      null,
+      `${esModule ? 'export default' : 'module.exports ='} ${jsonString};`
+    );
   } catch (error) {
+    // this.emitError(error);
     callback(error);
   }
 
