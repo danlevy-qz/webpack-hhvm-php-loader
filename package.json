@@ -20,7 +20,7 @@
     "security": "npm audit",
     "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
-    "lint": "npm-run-all -l -p \"lint:**\"",
+    "lint": "yarn lint:js && yarn lint:prettier",
     "test:only": "cross-env NODE_ENV=test jest",
     "test:watch": "yarn test:only -- --watch",
     "test:coverage": "yarn test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
