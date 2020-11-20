@@ -71,11 +71,12 @@ And run `webpack` via your preferred method.
 
 ## Options
 
-| Name                        |    Type     | Default | Description                                      |
-| --------------------------- | :---------: | :-----: | :----------------------------------------------- |
-| **[`esModule`](#esmodule)** | `{Boolean}` | `true`  | Uses ES modules syntax                           |
-| **[`timeout`](#timeout)**   | `{Number}`  | `5000`  | Number of milliseconds to wait before timing out |
-| **[`parser`](#parser)**     | `{String}`  | `json`  | Either `json` or `string` mode                   |
+| Name                        |    Type     | Default | Description                                                |
+| --------------------------- | :---------: | :-----: | :--------------------------------------------------------- |
+| **[`esModule`](#esmodule)** | `{Boolean}` | `true`  | Uses ES modules syntax                                     |
+| **[`timeout`](#timeout)**   | `{Number}`  | `5000`  | Number of milliseconds to wait before timing out           |
+| **[`parser`](#parser)**     | `{String}`  | `json`  | Either `json` or `string` mode                             |
+| **[`engine`](#engine)**     | `{String}`  | `hhvm`  | The executable to run your script with. Defaults to `hhvm` |
 
 ### `esModule`
 
