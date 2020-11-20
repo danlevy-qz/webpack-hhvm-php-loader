@@ -1,6 +1,6 @@
 {
   "name": "webpack-hhvm-php-loader",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A loader for webpack that executes hhvm scripts",
   "license": "MIT",
   "repository": "justsml/webpack-hhvm-php-loader",
@@ -20,7 +20,7 @@
     "security": "npm audit",
     "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
-    "lint": "npm-run-all -l -p \"lint:**\"",
+    "lint": "yarn lint:js && yarn lint:prettier",
     "test:only": "cross-env NODE_ENV=test jest",
     "test:watch": "yarn test:only -- --watch",
     "test:coverage": "yarn test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
@@ -61,12 +61,16 @@
     "jest": "^26.5.2",
     "lint-staged": "^10.4.0",
     "memfs": "^3.2.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all": "4.1.5",
     "prettier": "^2.1.2",
     "standard-version": "^9.0.0",
     "webpack": "^4.44.2"
   },
   "keywords": [
-    "webpack"
+    "webpack",
+    "loader",
+    "hacklang",
+    "hhvm",
+    "php"
   ]
 }

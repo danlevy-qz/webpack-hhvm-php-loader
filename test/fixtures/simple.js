@@ -1,4 +1,4 @@
-import txt from './file.php';
+import txt from './file.php?parser=string';
 
 __export__ = txt;
 
